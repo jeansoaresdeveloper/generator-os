@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create_table_order_service" author="jean.soares">
+        <preConditions onFail="MARK_RAN" onFailMessage="Tabela Order Service já existe.">
+            <not>
+                <tableExists tableName="order_service"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="order_service">
+            <column name="order_identity" type="integer">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="service identity" type="integer">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="hours" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="float">
+                <constraints nullable="false"/>
+            </column>
+            <column name="identity" type="integer">
+                <constraints foreignKeyName="true"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

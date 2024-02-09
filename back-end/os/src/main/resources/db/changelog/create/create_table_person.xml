@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+        <changeSet id="create_table_person" author="jean.soares">
+            <preConditions onFail="MARK_RAN" onFailMessage="Tabela person já existe">
+                <not>
+                    <tableExists tableName="person"/>
+                </not>
+            </preConditions>
+
+            <createTable tableName="person">
+                <column name="identity" type="integer">
+                    <constraints primaryKey="true"/>
+                </column>
+                <column name="name_person" type="varchar">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="phone_number" type="varchar(11)">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="second_number" type="varchar(11)">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="email" type="varchar(200)">
+                    <constraints nullable="false"/>
+                </column>
+            </createTable>
+
+        </changeSet>
+
+</databaseChangeLog>

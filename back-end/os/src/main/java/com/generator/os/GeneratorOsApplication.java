@@ -10,4 +10,5 @@ public class GeneratorOsApplication {
 		SpringApplication.run(GeneratorOsApplication.class, args);
 	}
 
+
 }
